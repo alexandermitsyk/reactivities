@@ -37,3 +37,7 @@ body {
   font-size: 1.7em;
   font-weight: normal;
 }
+
+.rw-widget-picker input {
+  border: 0 !important;
+}

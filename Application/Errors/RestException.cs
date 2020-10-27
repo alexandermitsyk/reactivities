@@ -10,7 +10,6 @@ namespace Application.Errors
             Code = code;
             Errors = errors;
         }
-
         public HttpStatusCode Code { get; }
         public object Errors { get; }
     }
