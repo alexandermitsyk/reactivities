@@ -55,15 +55,15 @@ const ActivityForm: React.FC<RouteComponentProps<DetailParams>> = ({
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-      if (match.params.id) {
-        setLoading(true);
-        loadActivity(match.params.id)
-          .then(activity => {
-            setActivity(new ActivityFormValues(activity));
-          })
-          .finally(() => setLoading(false));
-      }
-    }, [loadActivity, match.params.id]);
+        if (match.params.id) {
+          setLoading(true);
+          loadActivity(match.params.id)
+            .then(activity => {
+              setActivity(new ActivityFormValues(activity));
+            })
+            .finally(() => setLoading(false));
+        }
+      }, [loadActivity, match.params.id]);
 
 
     const handleFinalFormSubmit = (values: any) => {
