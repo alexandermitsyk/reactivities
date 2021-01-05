@@ -41,3 +41,27 @@ body {
 .rw-widget-picker input {
   border: 0 !important;
 }
+
+img.ui.massive.image {
+  max-width: 180px;
+}
+
+.dimmed.dimmable > .ui.animating.dimmer,
+.dimmed.dimmable > .ui.visible.dimmer,
+.ui.active.dimmer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ui.modal,
+.ui.active.modal {
+  margin: 0 auto !important;
+  top: auto !important;
+  left: auto !important;
+  transform-origin: center !important;
+  transition: all ease 0.5s;
+}
+
+.ui.modal.mini {
+  max-width: 400px;
+}

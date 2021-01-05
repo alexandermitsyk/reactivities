@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Container } from 'semantic-ui-react';
 import NavigationBar from '../../feature/nav/NavigationBar';
@@ -9,10 +9,29 @@ import ActivityForm from '../../feature/activities/form/ActivityForm';
 import ActivityDetails from '../../feature/activities/details/ActivityDetails';
 import NotFound from './NotFound';
 import { ToastContainer } from 'react-toastify';
+import LoginForm from '../../feature/activities/user/LoginForm';
+import { RootStoreContext } from '../stores/rootStore';
+import { LoadingComponent } from './LoadingComponent';
+import ModalContainer from '../common/modals/ModalContainer';
 
-const App: React.FC<RouteComponentProps> = ( { location } ) => {
+const App: React.FC<RouteComponentProps> = ({ location }) => {
+    const rootStore = useContext(RootStoreContext);
+    const { appLoaded, setAppLoaded, token } = rootStore.commonStore;
+    const { getUser } = rootStore.userStore;
+
+    useEffect(() => {
+        if (token) {
+            getUser().finally(() => setAppLoaded());
+        } else {
+            setAppLoaded();
+        }
+    }, [getUser, setAppLoaded, token]);
+
+    if (!appLoaded) return <LoadingComponent content='Loading app...' />
+
     return (
         <>
+            <ModalContainer />
             <ToastContainer position='bottom-right' />
             <Route exact path='/' component={HomePage} />
             <Route exact path={'/(.+)'} render={() => (
@@ -23,6 +42,7 @@ const App: React.FC<RouteComponentProps> = ( { location } ) => {
                             <Route exact path='/activities' component={ActivityDashboard} />
                             <Route path='/activity/:id' component={ActivityDetails} />
                             <Route key={location.key} path={['/create-activity', '/manage/:id']} component={ActivityForm} />
+                            <Route path='/login' component={LoginForm} />
                             <Route component={NotFound} />
                         </Switch>
                     </Container>
