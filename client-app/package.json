@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@microsoft/signalr": "^5.0.4",
     "@types/jest": "24.9.1",
     "@types/node": "12.6.8",
     "@types/react": "16.8.23",
