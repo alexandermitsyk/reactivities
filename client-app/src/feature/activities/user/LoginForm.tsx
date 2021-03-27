@@ -32,7 +32,7 @@ const LoginForm = () => {
                 dirtySinceLastSubmit
             }) => (
                 <Form onSubmit={handleSubmit} error>
-                    <Header as="h2" content="Login to Reactivities" color="teal" textAlign="center" />
+                    <Header as="h2" content="Login to Reactivities" color="green" textAlign="center" />
                     <Field name="email" component={TextInput} placeholder="Email" />
                     <Field
                         name="password"
@@ -43,7 +43,7 @@ const LoginForm = () => {
                     {
                         submitError && (<ErrorMessage error={submitError} text="Invalid username or password" />)
                     }
-                    <Button disabled={(invalid && !dirtySinceLastSubmit) || pristine} color="teal" loading={submitting} content="Login" fluid />
+                    <Button disabled={(invalid && !dirtySinceLastSubmit) || pristine} color="green" loading={submitting} content="Login" fluid />
                 </Form>
             )}
         />

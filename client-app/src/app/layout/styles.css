@@ -14,12 +14,18 @@ body {
 .masthead {
   display: flex;
   align-items: center;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     135deg,
     rgb(24, 42, 115) 0%,
     rgb(33, 138, 174) 69%,
     rgb(32, 167, 172) 89%
-  ) !important;
+  ) !important; */
+  background-image: url(https://res.cloudinary.com/cloudcodeless/image/upload/v1616833555/john-schnobrich-2FPjlAyMQTA-unsplash.jpg) !important;
+  height: 100vh;
+  background-size: cover !important;
+  background-position: 100px center !important;
+  height: 100vh;
+  background-repeat: no-repeat !important;
   height: 100vh;
 }
 
@@ -64,4 +70,25 @@ img.ui.massive.image {
 
 .ui.modal.mini {
   max-width: 400px;
+}
+
+.ui.text.container.login-container {
+  margin-left: initial !important;
+  height: 100vh;
+  width: 30%;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ui.text.container.login-container h1 {
+  color: #000;
+  font-size: 45px;
+}
+
+.ui.text.container.login-container h2 {
+  color: #000;
 }

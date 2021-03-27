@@ -34,7 +34,7 @@ const RegisterForm = () => {
                 dirtySinceLastSubmit
             }) => (
                 <Form onSubmit={handleSubmit} error>
-                    <Header as="h2" content="Sign up to Reactivities" color="teal" textAlign="center" />
+                    <Header as="h2" content="Sign up to Reactivities" color="green" textAlign="center" />
                     <Field name="username" component={TextInput} placeholder="Username" />
                     <Field name="displayName" component={TextInput} placeholder="Display name" />
                     <Field name="email" component={TextInput} placeholder="Email" />
@@ -47,7 +47,7 @@ const RegisterForm = () => {
                     {
                         submitError && (<ErrorMessage error={submitError} />)
                     }
-                    <Button disabled={(invalid && !dirtySinceLastSubmit) || pristine} color="teal" loading={submitting} content="Register" fluid />
+                    <Button disabled={(invalid && !dirtySinceLastSubmit) || pristine} color="green" loading={submitting} content="Register" fluid />
                 </Form>
             )}
         />

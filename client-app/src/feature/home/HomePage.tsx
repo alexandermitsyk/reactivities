@@ -11,11 +11,11 @@ const HomePage = () => {
     const { openModal } = rootStore.modalStore;
     return (
         <Segment inverted textAlign='center' vertical className='masthead'>
-            <Container text>
+            <Container text className="login-container">
                 <Header as='h1' inverted>
                     <Image
                         size='massive'
-                        src='/assets/logo.png'
+                        src='/assets/logo-audit.svg'
                         alt='logo'
                         style={{ marginBottom: 12 }}
                     />
@@ -25,21 +25,23 @@ const HomePage = () => {
                     isLoggedIn && user ? (
                         <>
                             <Header as='h2' inverted content={`Welcome back ${user.displayName}`} />
-                            <Button as={Link} to='/activities' size='huge' inverted>
+                            <Button as={Link} to='/activities' size='huge' color="green">
                                 Go to activities!
                                 </Button>
                         </>
                     ) : (
-                            <>
-                                <Header as='h2' inverted content='Welcome to Reactivities' />
-                                <Button onClick={() => openModal(<LoginForm />)} size='medium' inverted>
+                        <>
+                            <Header as='h2' inverted content='Welcome to Reactivities' />
+                            <div>
+                                <Button onClick={() => openModal(<LoginForm />)} size='medium' color="green">
                                     Login
                                 </Button>
-                                <Button onClick={() => openModal(<RegisterForm />)} size='medium' inverted>
+                                <Button onClick={() => openModal(<RegisterForm />)} size='medium' color="green">
                                     Register
                                 </Button>
-                            </>
-                        )
+                            </div>
+                        </>
+                    )
                 }
             </Container>
         </Segment>
